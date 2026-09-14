@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    background: #000;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: #000;
+    color: #fff;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: rgba(255, 255, 255, 0.85);
+    color: #000;
+  }
+
+  a,
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* Arrow button fly animation — CTA */
+@keyframes flyOutRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(250%);
+    opacity: 0;
+  }
+}
+
+@keyframes flyInLeft {
+  from {
+    transform: translateX(-250%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Nav link vertical fly animation */
+@keyframes flyOutUp {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-150%);
+    opacity: 0;
+  }
+}
+
+@keyframes flyInUp {
+  from {
+    transform: translateY(150%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.anim-fly-out-right {
+  animation: flyOutRight 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.anim-fly-in-left {
+  animation: flyInLeft 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.anim-fly-out-up {
+  animation: flyOutUp 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.anim-fly-in-up {
+  animation: flyInUp 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
